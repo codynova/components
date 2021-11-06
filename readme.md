@@ -41,7 +41,7 @@ yarn add @novas/components styled-components
 
 -   `Trigger`
 
-    -   `id` - string or number
+    -   `id` - string, number, or undefined (substate key)
     -   `children` - standard React children **or** children as a function:
 
 ```tsx
