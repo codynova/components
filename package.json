@@ -9,8 +9,9 @@
 	"license": "MIT",
 	"sideEffects": false,
 	"scripts": {
-		"prepare": "husky install",
 		"build": "npm run lint && npm run prettier && rimraf dist && rollup -c",
+		"prepare": "husky install",
+		"prepublishOnly": "npm run build",
 		"lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
 		"prettier": "prettier --write .",
 		"pretty-quick": "pretty-quick --staged"
