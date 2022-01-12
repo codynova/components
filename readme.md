@@ -67,6 +67,7 @@ const Example = () => (
 					setActiveIds, // set all active ids
 					setActiveById, // set some id's active state
 					toggleById, // toggle some id's active state
+					getIds, // get all ids regardless of active state
 				}) => (
 					<button
 						css={{ color: active ? 'green' : 'red' }}
