@@ -39,9 +39,6 @@ export const Triggers = ({
 }) => {
 	const initialValue = createObject(defaultActiveIds)
 	const { store, setStore, subscribe } = useCreateSubState(initialValue)
-	const setActiveIds = (ids: (string | number)[]) => {
-		for (const id in store) setActiveById(id, ids.includes(id))
-	}
 	const setActiveById = (id: string | number, active: boolean) => {
 		if (!active) {
 			if (!store[id] || (!allowNoneActive && getActiveCount(store) === 1))
@@ -53,6 +50,9 @@ export const Triggers = ({
 
 		for (const key in store) store[key] && setStore(key, false)
 		setStore(id, true)
+	}
+	const setActiveIds = (ids: (string | number)[]) => {
+		for (const id in store) setActiveById(id, ids.includes(id))
 	}
 	const toggleById = (id: string | number) => setActiveById(id, !store[id])
 	const getActiveIds = () =>
@@ -80,6 +80,7 @@ type TriggerChildrenFnProps = Omit<TriggersContext, 'getActiveIds'> & {
 	setActive: React.Dispatch<React.SetStateAction<boolean>>
 	toggleActive: React.DispatchWithoutAction
 	activeIds: (string | number)[]
+	getIds: () => (string | number)[]
 }
 
 export const Trigger = ({
@@ -91,20 +92,20 @@ export const Trigger = ({
 		| React.ReactNode
 		| ((props: TriggerChildrenFnProps) => React.ReactNode)
 }) => {
-	const { state, setState } = useSubState(id, false)
+	const { state, setState, store } = useSubState(id, false)
 	const { getActiveIds, setActiveIds, setActiveById, toggleById } =
 		useContext(TriggersContext)
-	const toggleActive = () => setState((s) => !s)
 
 	if (typeof children === 'function')
 		return children({
 			active: state,
 			setActive: setState,
-			toggleActive,
+			toggleActive: () => setState((s) => !s),
 			activeIds: getActiveIds(),
 			setActiveIds,
 			setActiveById,
 			toggleById,
+			getIds: () => Object.keys(store),
 		})
 
 	return children
