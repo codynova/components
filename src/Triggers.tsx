@@ -28,8 +28,8 @@ const getActiveCount = (store: Record<string | number, boolean>) =>
 
 export const Triggers = ({
 	defaultActiveIds,
-	allowMultiActive,
-	allowNoneActive,
+	allowMultiActive = true,
+	allowNoneActive = true,
 	children,
 }: {
 	defaultActiveIds?: (string | number)[]
@@ -76,6 +76,7 @@ export const Triggers = ({
 }
 
 type TriggerChildrenFnProps = Omit<TriggersContext, 'getActiveIds'> & {
+	id?: string | number
 	active: boolean
 	setActive: React.Dispatch<React.SetStateAction<boolean>>
 	toggleActive: React.DispatchWithoutAction
@@ -98,6 +99,7 @@ export const Trigger = ({
 
 	if (typeof children === 'function')
 		return children({
+			id,
 			active: state,
 			setActive: setState,
 			toggleActive: () => setState((s) => !s),

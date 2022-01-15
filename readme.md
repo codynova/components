@@ -35,8 +35,8 @@ yarn add @novas/components styled-components
 -   `Triggers` - a [`SubStateProvider`](https://github.com/codynova/substate) with an api for tracking child `Trigger` binary state
 
     -   `defaultActiveIds` - array of child `Trigger` ids
-    -   `allowMultiActive` - allow multiple active ids, default `false`
-    -   `allowNoneActive` - allow zero active ids, default `false`
+    -   `allowMultiActive` - allow multiple active ids, default `true`
+    -   `allowNoneActive` - allow zero active ids, default `true`
     -   `children` - standard React children
 
 -   `Trigger`
@@ -46,6 +46,7 @@ yarn add @novas/components styled-components
 
 ```tsx
 type TriggerChildrenFnProps = {
+	id?: string | number
 	active: boolean
 	setActive: React.Dispatch<React.SetStateAction<boolean>>
 	toggleActive: React.DispatchWithoutAction
@@ -53,6 +54,7 @@ type TriggerChildrenFnProps = {
 	setActiveIds: (ids: (string | number)[]) => void
 	setActiveById: (id: string | number, active: boolean) => void
 	toggleById: (id: string | number) => void
+	getIds: () => (string | number)[]
 }
 
 const Example = () => (
@@ -60,6 +62,7 @@ const Example = () => (
 		<Stack>
 			<Trigger id="1">
 				{({
+					id, // the id of this trigger
 					active, // if this id is active
 					setActive, // set this id's active state
 					toggleActive, // toggle this id's active state

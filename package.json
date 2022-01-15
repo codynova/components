@@ -1,6 +1,6 @@
 {
 	"name": "@novas/components",
-	"version": "0.0.1-alpha.5",
+	"version": "0.0.1-alpha.6",
 	"description": "Minimal and performant React component library built on styled-components",
 	"module": "dist/components.esm.js",
 	"types": "dist/index.d.ts",
