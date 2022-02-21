@@ -18,12 +18,12 @@ yarn add @novas/components styled-components
 -   `Stack` - `styled.div({ display: 'flex', flexDirection: 'column' })`
 -   `Grid` - `styled.div({ display: 'grid' })`
 
-### Form - coming soon
+### Form
 
--   `Checkbox`
--   `Radio`
--   `Select`
--   `Toggle`
+-   `Checkbox` - controlled or uncontrolled, native accessibility
+-   `Radio` - controlled or uncontrolled, native accessibility
+-   `Select` - coming soon
+-   `Toggle` - coming soon
 
 ### Styles
 
