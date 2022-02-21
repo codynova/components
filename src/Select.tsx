@@ -18,11 +18,11 @@ const SelectContainer = styled.div`
 
 	select,
 	span {
-		padding: 0 0.25em;
+		box-sizing: border-box;
+		padding: 0.25rem;
 	}
 
 	span {
-		box-sizing: content-box;
 		position: absolute;
 		display: flex;
 		align-items: center;
@@ -30,9 +30,7 @@ const SelectContainer = styled.div`
 		top: 0;
 		bottom: 0;
 		right: 0;
-		width: 0.75rem;
-		padding-left: 0.25em;
-		background-color: transparent;
+		width: 1.25rem;
 	}
 
 	svg {

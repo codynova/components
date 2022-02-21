@@ -16,8 +16,11 @@ export const inputContainer = `
 		opacity: 0;
 	}
 
-	span {
+	span, svg {
 		box-sizing: border-box;
+	}
+
+	span {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -43,9 +46,9 @@ export const inputContainer = `
 
 	input:checked:not(:disabled) + span {
 		background-color: #0277f6;
-    	background-color: -webkit-focus-ring-color;
+		background-color: -webkit-focus-ring-color;
 		border-color: #0277f6;
-    	border-color: -webkit-focus-ring-color;
+		border-color: -webkit-focus-ring-color;
 	}
 
 	input:checked:disabled + span {
