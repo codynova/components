@@ -22,7 +22,7 @@ yarn add @novas/components styled-components
 
 -   `Checkbox` - controlled or uncontrolled, native accessibility
 -   `Radio` - controlled or uncontrolled, native accessibility
--   `Select` - coming soon
+-   `Select` - controlled or uncontrolled, native accessibility
 -   `Toggle` - coming soon
 
 ### Styles

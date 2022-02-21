@@ -29,22 +29,11 @@ export const inputContainer = `
 		pointer-events: none;
 	}
 
-	span svg {
+	svg {
 		width: 100%;
 		padding: 0.1rem;
 		fill: #ffffff;
 		opacity: 0;
-	}
-
-	input:checked + span {
-		background-color: #0277f6;
-    	background-color: -webkit-focus-ring-color;
-		border-color: #0277f6;
-    	border-color: -webkit-focus-ring-color;
-	}
-
-	input:checked + span svg {
-		opacity: 1;
 	}
 
 	input:disabled + span {
@@ -52,16 +41,31 @@ export const inputContainer = `
 		border-color: #d1d1d1;
 	}
 
+	input:checked:not(:disabled) + span {
+		background-color: #0277f6;
+    	background-color: -webkit-focus-ring-color;
+		border-color: #0277f6;
+    	border-color: -webkit-focus-ring-color;
+	}
+
+	input:checked:disabled + span {
+		background-color: #d1d1d1;
+	}
+
+	input:checked + span svg {
+		opacity: 1;
+	}
+
 	input:focus-visible + span {
 		${outline}
 		outline-offset: 3px;
 	}
 
-	input:hover + span {
+	input:hover:not(:disabled) + span {
 		border-color: #4f4f4f;
 	}
 
-	input:checked:hover + span {
+	input:checked:hover:not(:disabled) + span {
 		background-color: #225ec1;
 		border-color: #225ec1;
 	}
