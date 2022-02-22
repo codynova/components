@@ -3,13 +3,16 @@ import styled from 'styled-components'
 import { Chevron } from './Chevron'
 
 const SelectContainer = styled.div`
+	box-sizing: border-box;
 	position: relative;
+	width: 100%;
 
 	select {
 		appearance: none;
 		width: 100%;
 		margin: 0;
-		border: 1px solid #767676;
+		border: 1px solid #000000;
+		outline-offset: 3px;
 	}
 
 	span {

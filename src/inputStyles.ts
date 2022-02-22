@@ -1,8 +1,11 @@
 import { outline } from './outline'
 
 export const inputContainer = `
+	box-sizing: border-box;
 	position: relative;
 	display: inline-flex;
+	width: 1rem;
+	height: 1rem;
 
 	input {
 		position: absolute;
@@ -24,17 +27,17 @@ export const inputContainer = `
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 1rem;
-		height: 1rem;
+		width: 100%;
+		height: 100%;
 		margin: 0;
 		border: 1px solid #767676;
-		border-radius: 0.2rem;
+		border-radius: 20%;
 		pointer-events: none;
 	}
 
 	svg {
 		width: 100%;
-		padding: 0.1rem;
+		padding: 10%;
 		fill: #ffffff;
 		opacity: 0;
 	}
@@ -46,9 +49,7 @@ export const inputContainer = `
 
 	input:checked:not(:disabled) + span {
 		background-color: #0277f6;
-		background-color: -webkit-focus-ring-color;
 		border-color: #0277f6;
-		border-color: -webkit-focus-ring-color;
 	}
 
 	input:checked:disabled + span {
@@ -62,23 +63,5 @@ export const inputContainer = `
 	input:focus-visible + span {
 		${outline}
 		outline-offset: 3px;
-	}
-
-	input:hover:not(:disabled) + span {
-		border-color: #4f4f4f;
-	}
-
-	input:checked:hover:not(:disabled) + span {
-		background-color: #225ec1;
-		border-color: #225ec1;
-	}
-
-	input:active + span {
-		border-color: #8d8d8d;
-	}
-
-	input:checked:active + span {
-		background-color: #4e94f7;
-		border-color: #4e94f7;
 	}
 `
